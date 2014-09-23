@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20140923173255) do
 
   create_table "users", force: true do |t|
+    t.string   "company"
     t.string   "ip_address"
     t.string   "operating_system"
     t.string   "browser"
