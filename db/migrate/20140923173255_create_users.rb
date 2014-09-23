@@ -1,6 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
+        t.string :company
     	t.string :ip_address
     	t.string :operating_system
     	t.string :browser
