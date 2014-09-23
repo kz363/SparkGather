@@ -14,6 +14,7 @@ $ ->
   # console.log(flash_version)
   # console.log("Flash Version: #{flash_version}")
   user_id = $('#user_id').text()
+  user_ip_address = $('#user_ip_address').text()
   # console.log(user_id)
   audio = Modernizr.audio
   video = Modernizr.video
@@ -21,7 +22,10 @@ $ ->
   video_formats = "ogg: #{video.ogg}, h264: #{video.h264}, webm: #{video.webm}"
 
   get_proxy = ->
-    $.ajax "http://winmxunlimited.net/api/proxydetection/v1/query/?ip=#{user.ip}"
+    $.ajax "http://winmxunlimited.net/api/proxydetection/v1/query/?ip=#{user_ip_address}",
+      success: (result) ->
+        console.log(result)
+
 
   update_info = ->
     $.ajax '/update',
@@ -36,5 +40,5 @@ $ ->
         audio_formats: audio_formats
         video_formats: video_formats
 
-  update_info()
+  get_proxy()
 
