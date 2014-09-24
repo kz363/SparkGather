@@ -15,21 +15,23 @@ $ ->
   video_formats = "ogg: #{video.ogg}, h264: #{video.h264}, webm: #{video.webm}"
   cookies = navigator.cookieEnabled
 
+  user_info =
+    screen_resolution: "#{screen.width} x #{screen.height}"
+    window_size: "#{$window.width()} x #{$window.height()}"
+    html5_support: Modernizr.canvas
+    css3_support: Modernizr.borderradius
+    flash_version: flash_version
+    audio_formats: audio_formats
+    video_formats: video_formats
+    cookies: cookies
+    plugins: plugins.join(', ')
+    javascript: true
+
   update_info = ->
     $.ajax '/update',
       method: 'PUT'
       data:
         user_id: user_id
-        user_info:
-          screen_resolution: "#{screen.width} x #{screen.height}"
-          window_size: "#{$window.width()} x #{$window.height()}"
-          html5_support: Modernizr.canvas
-          css3_support: Modernizr.borderradius
-          flash_version: flash_version
-          audio_formats: audio_formats
-          video_formats: video_formats
-          cookies: cookies
-          plugins: plugins.join(', ')
-          javascript: true
+        user_info: user_info
 
   update_info()
