@@ -36,5 +36,6 @@ $ ->
           audio_formats: audio_formats
           video_formats: video_formats
           cookies: cookies
+          plugins: plugins.join(', ')
 
   update_info()
