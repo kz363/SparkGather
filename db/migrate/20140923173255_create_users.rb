@@ -21,7 +21,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.text :user_agent
     	t.text :plugins
 
-      t.timestamps
+            t.timestamps
     end
   end
 end

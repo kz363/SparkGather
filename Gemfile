@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-# G2 Gems
+# G2 gems and versions
 gem 'rails',  "4.0.3"
 gem "mysql2", "~> 0.3.11"
+gem 'bootstrap-sass', '~> 3.2.0'
 
 # Modernizr
 gem 'modernizr-rails'
