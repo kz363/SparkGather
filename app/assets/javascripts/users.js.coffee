@@ -4,6 +4,29 @@
 
 $ ->
 
+	showMsg = (msg) ->
+		$('#main-content').empty()
+		$('#main-content').append(msg)
+
+	showLoading = ->
+		# replace current page with gif
+		loadingStatus = ''
+		text = 'Uploading your system information. Please wait... '
+		img = "<img src='/assets/gs-loader.gif' alt='loading..'>"
+		loadingStatus += text
+		loadingStatus += img
+		showMsg(loadingStatus)
+
+	showSuccess = ->
+		# replace current page with success message
+		successMsg = 'Done! Now get Out.'
+		showMsg(successMsg)
+
+	showError = ->
+		# replace current page with success message
+		errorMsg = 'Uhoh! Something went wrong. Please reload the page and try again. Sorry.'
+		showMsg(errorMsg)
+
 	speed_test = ->
 		$.ajax '/speedtest',
 			method: 'GET'
@@ -14,6 +37,12 @@ $ ->
 			data:
 				user_id: user_id
 				user_info: user_info
+			error: ->
+				showError()
+			success: ->
+				showSuccess()
+
+	showLoading()
 
 	$window = $(window)
 	plugins = ( "#{plugin.name} #{plugin.description}" for plugin in navigator.plugins )
