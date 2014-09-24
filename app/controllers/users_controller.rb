@@ -3,17 +3,22 @@ class UsersController < ApplicationController
 	def gather
 		company = params[:c]
 		user_agent = request.env["HTTP_USER_AGENT"]
-		ip = request.remote_ip
+		ip_address = request.remote_ip
 		browser = /(opera|chrome|safari|firefox|msie|trident)\/[^ ]*/i.match(user_agent).to_s.gsub("/", " ")
-		os = /(Mac|Windows|Linux|Android|CPU|Blackberry) \w[^;)]*/i.match(user_agent).to_s
+		operating_system = /(Mac|Windows|Linux|Android|CPU|Blackberry) \w[^;)]*/i.match(user_agent).to_s
 
 		User.create( company: company,
 								 user_agent: user_agent,
-								 ip_address: ip,
+								 ip_address: ip_address,
 								 browser: browser,
-								 operating_system: os )
+								 operating_system: operating_system )
 
 		# render whatever
 	end
 
+	def update
+		user = User.find(params[:user_id])
+		user.update_attributes(params[:user_info])
+		render nothing: true
+	end
 end
