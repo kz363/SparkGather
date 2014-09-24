@@ -3,8 +3,20 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+
+  speed_test = ->
+    $.ajax '/speedtest',
+      method: 'GET'
+
+  update_info = ->
+    $.ajax '/update',
+      method: 'PUT'
+      data:
+        user_id: user_id
+        user_info: user_info
+
   $window = $(window)
-  plugins = ( "#{plugin.name} #{plugin.description}" for plugin in navigator.plugins)
+  plugins = ( "#{plugin.name} #{plugin.description}" for plugin in navigator.plugins )
   window.plugins = plugins
   flash_version = flash for flash in plugins when flash.match /Shockwave/
   user_id = parseInt($('#user_id').text())
@@ -27,11 +39,10 @@ $ ->
     plugins: plugins.join(', ')
     javascript: true
 
-  update_info = ->
-    $.ajax '/update',
-      method: 'PUT'
-      data:
-        user_id: user_id
-        user_info: user_info
-
-  update_info()
+  start = new Date().getTime()
+  test = speed_test()
+  test.done (data) ->
+    end = new Date().getTime()
+    size = parseInt(test.getResponseHeader('Content-Length'), 10) / 1000
+    user_info.download_speed = Math.round((size / ((end - start) / 1000)) * 10) / 10 + " KB/s";
+    update_info()

@@ -19,6 +19,8 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		puts "*"*500
+		puts params.inspect
 		user = User.find(params[:user_id])
 		user.update(user_info_params)
 		render nothing: true
