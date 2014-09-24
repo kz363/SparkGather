@@ -14,7 +14,10 @@ class UsersController < ApplicationController
 							  ip_address: ip,
 							  browser: browser,
 							  operating_system: os,
-							  proxy: proxy)
+							  proxy: proxy,
+							  mobile: mobile_browser?)
+		puts "CHECK MOBILE?\n\n\n\n"
+		p mobile_browser?
 		# render whatever
 	end
 
@@ -24,4 +27,9 @@ class UsersController < ApplicationController
 		render nothing: true
 	end
 
+	private
+
+	def mobile_browser?
+		request.env['HTTP_USER_AGENT'] && request.env["HTTP_USER_AGENT"][/(iPhone|iPod|iPad|Android)/] ? true : false
+	end
 end
