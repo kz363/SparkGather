@@ -10,17 +10,15 @@ class UsersController < ApplicationController
 		operating_system = /(Mac|Windows|Linux|Android|CPU|Blackberry) \w[^;)]*/i.match(user_agent).to_s
 		proxy = Proxy.check_proxy(ip_address)
 		@user = User.create(company: company,
-							  user_agent: user_agent,
-							  ip_address: ip_address,
-							  browser: browser,
-							  operating_system: operating_system,
-							  proxy: proxy,
-							  mobile: mobile_browser?)
+												user_agent: user_agent,
+												ip_address: ip_address,
+												browser: browser,
+												operating_system: operating_system,
+												proxy: proxy,
+												mobile: mobile_browser?)
 	end
 
 	def update
-		puts "*"*500
-		puts params.inspect
 		user = User.find(params[:user_id])
 		user.update(user_info_params)
 		render nothing: true
