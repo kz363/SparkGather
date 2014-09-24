@@ -13,7 +13,7 @@ $ ->
   flash_version = flash for flash in plugins when flash.match /Shockwave/
   # console.log(flash_version)
   # console.log("Flash Version: #{flash_version}")
-  user_id = $('#user_id').text()
+  user_id = parseInt($('#user_id').text())
   user_ip_address = $('#user_ip_address').text()
   # console.log(user_id)
   audio = Modernizr.audio
@@ -24,18 +24,19 @@ $ ->
 
   update_info = ->
     $.ajax '/update',
-      method: 'POST'
+      method: 'PUT'
       data:
         user_id: user_id
         user_info:
           screen_resolution: "#{screen.width} x #{screen.height}"
           window_size: "#{$window.width()} x #{$window.height()}"
-          html5_support: "#{Modernizr.canvas}"
-          css3_support: "#{Modernizr.borderradius}"
+          html5_support: Modernizr.canvas
+          css3_support: Modernizr.borderradius
           flash_version: flash_version
           audio_formats: audio_formats
           video_formats: video_formats
           cookies: cookies
           plugins: plugins.join(', ')
+          javascript: true
 
   update_info()
