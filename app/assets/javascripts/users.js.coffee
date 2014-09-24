@@ -19,7 +19,7 @@ $ ->
 
 	showSuccess = ->
 		# replace current page with success message
-		successMsg = 'Done! Now get Out.'
+		successMsg = "Done! You're all set. Please feel free to close this window."
 		showMsg(successMsg)
 
 	showError = ->
