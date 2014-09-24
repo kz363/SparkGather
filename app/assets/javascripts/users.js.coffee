@@ -4,18 +4,11 @@
 
 $ ->
   $window = $(window)
-  console.log("Screen Resolution: #{screen.width} x #{screen.height}")
-  console.log("Window Size: #{$window.width()} x #{$window.height()}")
-  console.log("HTML 5 Support? #{Modernizr.canvas}")
-  console.log("CSS 3 Support? #{Modernizr.borderradius}")
   plugins = ( "#{plugin.name} #{plugin.description}" for plugin in navigator.plugins)
   window.plugins = plugins
   flash_version = flash for flash in plugins when flash.match /Shockwave/
-  # console.log(flash_version)
-  # console.log("Flash Version: #{flash_version}")
   user_id = parseInt($('#user_id').text())
   user_ip_address = $('#user_ip_address').text()
-  # console.log(user_id)
   audio = Modernizr.audio
   video = Modernizr.video
   audio_formats = "ogg: #{audio.ogg}, wav: #{audio.wav}, m4a: #{audio.m4a}"
