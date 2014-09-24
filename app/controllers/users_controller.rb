@@ -8,10 +8,10 @@ class UsersController < ApplicationController
 		ip_address = request.remote_ip
 		browser = /(opera|chrome|safari|firefox|msie|trident)\/[^ ]*/i.match(user_agent).to_s.gsub("/", " ")
 		operating_system = /(Mac|Windows|Linux|Android|CPU|Blackberry) \w[^;)]*/i.match(user_agent).to_s
-		proxy = Proxy.check_proxy(ip)
+		proxy = Proxy.check_proxy(ip_address)
 		@user = User.create(company: company,
 							  user_agent: user_agent,
-							  ip_address: ip,
+							  ip_address: ip_address,
 							  browser: browser,
 							  operating_system: operating_system,
 							  proxy: proxy,
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
 	def update
 		user = User.find(params[:user_id])
-		user.update_attributes(params[:user_info])
+		user.update(user_info_params)
 		render nothing: true
 	end
 
@@ -28,5 +28,9 @@ class UsersController < ApplicationController
 
 	def mobile_browser?
 		request.env['HTTP_USER_AGENT'] && request.env["HTTP_USER_AGENT"][/(iPhone|iPod|iPad|Android)/] ? true : false
+	end
+
+	def user_info_params
+		params.require(:user_info).permit!
 	end
 end
