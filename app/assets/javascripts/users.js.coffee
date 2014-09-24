@@ -20,12 +20,7 @@ $ ->
   video = Modernizr.video
   audio_formats = "ogg: #{audio.ogg}, wav: #{audio.wav}, m4a: #{audio.m4a}"
   video_formats = "ogg: #{video.ogg}, h264: #{video.h264}, webm: #{video.webm}"
-
-  get_proxy = ->
-    $.ajax "http://winmxunlimited.net/api/proxydetection/v1/query/?ip=#{user_ip_address}",
-      success: (result) ->
-        console.log(result)
-
+  cookies = navigator.cookieEnabled
 
   update_info = ->
     $.ajax '/update',
@@ -39,6 +34,7 @@ $ ->
         flash_version: flash_version
         audio_formats: audio_formats
         video_formats: video_formats
+        cookies: cookies
 
-  get_proxy()
 
+  update_info()
