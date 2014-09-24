@@ -26,15 +26,15 @@ $ ->
     $.ajax '/update',
       method: 'POST'
       data:
-        user_id: user_id
-        screen_resolution: "#{screen.width} x #{screen.height}"
-        window_size: "#{$window.width()} x #{$window.height()}"
-        html5_support: "#{Modernizr.canvas}"
-        css3_support: "#{Modernizr.borderradius}"
-        flash_version: flash_version
-        audio_formats: audio_formats
-        video_formats: video_formats
-        cookies: cookies
-
+        user_info:
+          id: user_id
+          screen_resolution: "#{screen.width} x #{screen.height}"
+          window_size: "#{$window.width()} x #{$window.height()}"
+          html5_support: "#{Modernizr.canvas}"
+          css3_support: "#{Modernizr.borderradius}"
+          flash_version: flash_version
+          audio_formats: audio_formats
+          video_formats: video_formats
+          cookies: cookies
 
   update_info()
