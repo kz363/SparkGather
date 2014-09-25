@@ -7,10 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<div class="container-fluid">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+				<a class="logo navbar-brand clearfix" href="/">SparkGather</a>
+				</div>
+			</div>
+		</div>
 
-<%= yield %>
+		<%= yield %>
 
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag :modernizr %>
+	</div>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag :modernizr %>
+	<footer><a href="http://www.GuideSpark.com"><img src="assets/spark.png"></a></footer>
 </body>
 </html>

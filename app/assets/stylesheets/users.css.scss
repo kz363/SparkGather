@@ -6,10 +6,12 @@
   display: none;
 }
 
-.container {
-  height: 100%;
-}
-
 .center-text {
   text-align: center;
+}
+
+footer img {
+  position: absolute;
+  left: 49%;
+  bottom: 275px;
 }
