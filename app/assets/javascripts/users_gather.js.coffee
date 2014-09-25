@@ -1,5 +1,4 @@
 $(".users.gather").ready ->
-	alert "I should only show in info page!"
 
 	showMsg = (msg) ->
 		$('#main-content').empty()
