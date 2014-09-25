@@ -1,1 +1,16 @@
-Test Me!!
+<table>
+	<tbody>
+		<tr>
+			<th>Company</th>
+			<th># of Users</th>
+			<th>Last Updated</th>		
+		</tr>
+		<% @company_info.each do |company_info| %>
+			<tr>
+			<td><%=company_info[0]%></td>
+			<td><%=company_info[1]%></td>		
+			<td><%=company_info[2]%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
