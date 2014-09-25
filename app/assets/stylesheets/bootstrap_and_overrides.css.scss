@@ -1,2 +1,69 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+body {
+	padding-top: 200px;
+}
+
+.navbar .nav,
+.navbar .nav > li
+{
+	float:none;
+	display:inline-block;
+	*display:inline; /* ie7 fix */
+	*zoom:1; /* hasLayout ie7 trigger */
+    	vertical-align: top;
+  }
+
+.navbar-inner {
+  	text-align:center;
+  }
+
+.navbar {
+	float:none;
+}
+
+.navbar-inverse .navbar-brand {
+	color: white;
+}
+
+.navbar-inverse .navbar-brand:hover {
+	color: #EA9022;
+}
+
+.logo {
+	float: none;
+	margin: 0;
+	font-size: 2em;
+}
+
+.navbar-inverse {
+	background: #2D77A6;
+}
+
+.navbar-fixed-top {
+	border-width: 0;
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		font-size: 14px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	body {
+		font-size: 16px;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	body {
+		font-size: 18px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	body {
+		font-size: 20px;
+	}
+}

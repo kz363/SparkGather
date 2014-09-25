@@ -11,7 +11,7 @@ $ ->
 	showLoading = ->
 		# replace current page with gif
 		loadingStatus = ''
-		text = 'Uploading your system information. Please wait... '
+		text = 'Please wait... '
 		img = "<img src='/assets/gs-loader.gif' alt='loading..'>"
 		loadingStatus += text
 		loadingStatus += img
