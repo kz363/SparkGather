@@ -33,6 +33,8 @@ class UsersController < ApplicationController
 		# the correct call should show all company records based on
 		# company name params[:c]
 		@users = User.last(20)
+		@company = params[:c]
+		@metadata = User.metadata(@company)
 	end
 
 	def show
