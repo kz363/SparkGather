@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 	def index
-		# puts "*"*500
-		# puts user_info
 		@company_info = User.company_info
 	end
 
@@ -34,7 +32,7 @@ class UsersController < ApplicationController
 		# temporarily using User.last(10) to build the show template.
 		# the correct call should show all company records based on
 		# company name params[:c]
-		@users = User.last(10)
+		@users = User.last(20)
 	end
 
 	private
