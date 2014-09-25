@@ -6,6 +6,10 @@ gem 'rails',  "4.0.3"
 gem "mysql2", "~> 0.3.11"
 gem 'bootstrap-sass', '~> 3.2.0'
 
+group :test, :development do
+	gem "rspec-rails", "~> 2.13.1"
+end
+
 gem 'rails_best_practices'
 # Modernizr
 gem 'modernizr-rails'
