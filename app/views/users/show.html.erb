@@ -1,3 +1,19 @@
-Hi!!!
-You're User <%= @user.id %>
-
+<div class="col-md-4 col-md-offset-4" id="connection-table">
+	<table class="table table-striped table-bordered table-hover record-detail">
+		<tr>
+			<th colspan="2">HIIIII</th>
+		</tr>
+		<tr>
+			<td>Record</td>
+			<td><%= "#{@user.id}" %></td>
+		</tr>
+		<tr>
+			<td>OS</td>
+			<td><%= @user.operating_system %></td>
+		</tr>
+		<tr>
+			<td>Browser</td>
+			<td><%= @user.browser %></td>
+		</tr>
+	</table>
+</div>
