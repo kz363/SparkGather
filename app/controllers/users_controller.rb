@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 	def index
+		# puts "*"*500
+		# puts user_info
+		@company_info = User.company_info
 	end
 
 	def gather
