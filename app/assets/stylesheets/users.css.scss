@@ -12,4 +12,13 @@
 
 footer img {
 	padding-left: 49%;
+  	z-index: -1;
+}
+
+#record-table, .record-detail {
+	margin: 0 auto;
+}
+
+.record-detail {
+	margin-bottom: 10px;
 }
