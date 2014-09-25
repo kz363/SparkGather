@@ -24,6 +24,11 @@ class UsersController < ApplicationController
 		render nothing: true
 	end
 
+	def show
+		puts "show params! \n\n\n"
+		p params
+	end
+
 	private
 
 	def mobile_browser?
