@@ -2,10 +2,10 @@
 <html>
 <head>
 	<title>SparkGather</title>
-		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= stylesheet_link_tag    "application", media: "all" %>
 		<%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= controller_name%> <%= action_name %>">
 	<div class="container-fluid">
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
@@ -18,7 +18,7 @@
 		<%= yield %>
 
 	</div>
-	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application" %>
 	<%= javascript_include_tag :modernizr %>
 	<footer><a href="http://www.GuideSpark.com"><img src="assets/spark.png"></a></footer>
 </body>
