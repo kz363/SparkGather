@@ -6,6 +6,17 @@ gem 'rails',  "4.0.3"
 gem "mysql2", "~> 0.3.11"
 gem 'bootstrap-sass', '~> 3.2.0'
 
+group :test, :development do
+	gem "rspec-rails", "~> 2.13.1"
+end
+
+group :test do
+  gem "factory_girl_rails",   "~> 4.2.1"
+  gem "capybara",             "~> 2.0.2"
+  gem "simplecov",            "~> 0.7.1", :require => false
+  gem "simplecov-rcov",       "~> 0.2.3", :require => false
+end
+
 gem 'rails_best_practices'
 # Modernizr
 gem 'modernizr-rails'

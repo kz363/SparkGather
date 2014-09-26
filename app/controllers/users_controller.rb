@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 	MOBILE_DEVICES = /(iPhone|iPod|iPad|Android|Phone|IEMobile|Tablet|Mobile|Nokia)/
 
 	def index
+		puts Cache.methods.sort
 		@company_info = User.company_info
 	end
 
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
 	def update
 		user = User.find(params[:user_id])
 		user.update(user_info_params)
+		Cache.update
 		render nothing: true
 	end
 
