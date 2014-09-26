@@ -4,12 +4,14 @@
 			<th>Record</th>
 			<th>OS</th>
 			<th>Browser</th>
+			<th>Time Created</th>
 		</thead>
 		<% users.each do |u| %>
 		<tr>
 			<td><%= link_to "#{u.id}", user_path(u.id) %></td>
 			<td><%= u.operating_system %></td>
 			<td><%= u.browser %></td>
+			<td><%= u.created_at.localtime %></td>
 		</tr>
 		<% end %>
 	</table>

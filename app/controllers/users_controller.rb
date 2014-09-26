@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	MOBILE_DEVICES = /(iPhone|iPod|iPad|Android|Phone|IEMobile|Tablet|Mobile|Nokia)/
+
 	def index
 		puts Cache.methods.sort
 		@company_info = User.company_info
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
 	end
 
 	def company
-		@users = Rails.cache.read('users_info')[params[:c]]
+		@users = Rails.cache.read('users_info')[params[:c]].sort { |a,b| b.id <=> a.id }
 		@company = params[:c]
 		@metadata = User.metadata(@company)
 	end
@@ -40,7 +42,7 @@ class UsersController < ApplicationController
 	private
 
 	def mobile_browser?
-		request.env['HTTP_USER_AGENT'] && request.env["HTTP_USER_AGENT"][/(iPhone|iPod|iPad|Android)/] ? true : false
+		request.env['HTTP_USER_AGENT'] && request.env["HTTP_USER_AGENT"][MOBILE_DEVICES] ? true : false
 	end
 
 	def user_info_params
