@@ -1,14 +1,14 @@
 <div class="col-md-3"></div>
 <div class="col-md-6">
 	<table class="table table-bordered table-hover record-detail">
-		<h1 class="text-center"><%= @user.company %></h1>
+		<h1 class="text-center"><a href="/users?c=<%= @user.company %>"><%= @user.company %></a></h1>
 		<tr>
 			<th class="sub-title" colspan="2">Record ID: <%= @user.id %></th>
 		</tr>
 		<!-- Record Timestamps -->
 		<%= info_box('Record Timestamps', {
-			'Record Created' => '@user.created_at',
-			'Record Updated' => '@user.updated_at' }) %>
+			'Record Created' => '@user.created_at.localtime',
+			'Record Updated' => '@user.updated_at.localtime' }) %>
 		<!-- Basic System Information -->
 		<%= info_box('Basic System Information', {
 			'User Agent' => '@user.user_agent',

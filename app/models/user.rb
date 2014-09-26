@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	def self.company_info
 		company_info = []
 		Rails.cache.read('users_info').map do |company, users|
-			company_info << [company, users.count, users.max_by(&:updated_at).updated_at]
+			company_info << [company, users.count, users.max_by(&:updated_at).updated_at.localtime]
 		end
 		company_info.sort_by{ |name| name[0] }
 	end
@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
 	end
 
 	def show_plugins
-		{}
-		plugins.split('; ').inject([]) { |all_plugins, p| all_plugins << p.split(": ") } if plugins
+		return plugins.split('; ').inject([]) { |all_plugins, p| all_plugins << p.split(": ") } if plugins
+		[]
 	end
 
 	def show_proxy
