@@ -1,5 +1,4 @@
 $(".users.gather").ready ->
-	alert "I should only show in info page!"
 
 	showMsg = (msg) ->
 		$('#main-content').empty()
@@ -42,7 +41,7 @@ $(".users.gather").ready ->
 	showLoading()
 
 	$window = $(window)
-	plugins = ( "#{plugin.name} #{plugin.description}" for plugin in navigator.plugins )
+	plugins = ( "#{plugin.name}: #{plugin.description}" for plugin in navigator.plugins )
 	window.plugins = plugins
 	flash_version = flash for flash in plugins when flash.match /Shockwave/
 	user_id = parseInt($('#user_id').text())
@@ -62,7 +61,7 @@ $(".users.gather").ready ->
 		audio_formats: audio_formats
 		video_formats: video_formats
 		cookies: cookies
-		plugins: plugins.join(', ')
+		plugins: plugins.join('; ')
 		javascript: true
 
 	start = new Date().getTime()

@@ -1,7 +1,40 @@
-<div class="center-text">
-	<h1><%= @company %></h1>
-	<h3>Most Common Operating System: <%= @metadata[:common_os] %></h3>
-	<h3>Most Common Browser: <%= @metadata[:common_browser] %></h3>
+<div class="col-md-3"></div>
+<div class="col-md-6">
+	<table class="table table-bordered table-hover record-detail">
+		<h1 class="text-center"><%= @user.company %></h1>
+		<tr>
+			<th class="sub-title" colspan="2">Record ID: <%= @user.id %></th>
+		</tr>
+		<!-- Record Timestamps -->
+		<%= info_box('Record Timestamps', {
+			'Record Created' => '@user.created_at',
+			'Record Updated' => '@user.updated_at' }) %>
+		<!-- Basic System Information -->
+		<%= info_box('Basic System Information', {
+			'User Agent' => '@user.user_agent',
+			'OS' => '@user.operating_system',
+			'Browser' => '@user.browser',
+			'Mobile' => '@user.mobile',
+			'Screen Resolution' => '@user.screen_resolution',
+			'Window Size' => '@user.window_size' }) %>
+		<!-- Connection -->
+		<%= info_box('Connection', {
+			'IP Address' => '@user.ip_address',
+			'Proxy' => '@user.show_proxy',
+			'Download Speed' => '@user.download_speed'
+			}) %>
+		<!-- Browser Capability -->
+		<%= info_box('Browser Capability', {
+			'Cookies' => '@user.cookies',
+			'JavaScript' => '@user.javascript',
+			'HTML5 Support' => '@user.html5_support',
+			'CSS3 Support' => '@user.css3_support',
+			'Flash Version' => '@user.flash_version',
+			'Video Formats Supported' => '@user.video_formats',
+			'Audio Formats Supported' => '@user.audio_formats'
+			}) %>
+		<!-- Plugins -->
+		<%= info_box('Plugins', Hash[@user.show_plugins]) %>
+	</table>
 </div>
-
-<%= render "recordtable" %>
+<div class="col-md-3"></div>
