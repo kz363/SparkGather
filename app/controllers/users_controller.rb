@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	MOBILE_DEVICES = /(iPhone|iPod|iPad|Android|Phone|IEMobile|Tablet|Mobile|Nokia)/
+
 	def index
 		@company_info = User.company_info
 	end
@@ -38,7 +40,7 @@ class UsersController < ApplicationController
 	private
 
 	def mobile_browser?
-		request.env['HTTP_USER_AGENT'] && request.env["HTTP_USER_AGENT"][/(iPhone|iPod|iPad|Android)/] ? true : false
+		request.env['HTTP_USER_AGENT'] && request.env["HTTP_USER_AGENT"][MOBILE_DEVICES] ? true : false
 	end
 
 	def user_info_params
