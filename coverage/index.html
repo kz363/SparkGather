@@ -14,27 +14,27 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-09-26T09:45:25-07:00">2014-09-26T09:45:25-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-09-26T10:23:22-07:00">2014-09-26T10:23:22-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">81.33%</span></span>
+    (<span class="covered_percent"><span class="yellow">87.78%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.76
+       <span class="green">
+         1.1
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>16</b> files in total.
-    <b>75</b> relevant lines. 
-    <span class="green"><b>61</b> lines covered</span> and
-    <span class="red"><b>14</b> lines missed </span>
+    <b>17</b> files in total.
+    <b>90</b> relevant lines. 
+    <span class="green"><b>79</b> lines covered</span> and
+    <span class="red"><b>11</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,12 +52,12 @@
       
       <tr>
         <td class="strong"><a href="#4a286990096e4ae8efbe71be286fcaa50f9be4f3" class="src_link" title="app/helpers/users_helper.rb">app/helpers/users_helper.rb</a></td>
-        <td class="red strong">40.0 %</td>
+        <td class="green strong">100.0 %</td>
         <td>13</td>
         <td>5</td>
-        <td>2</td>
-        <td>3</td>
-        <td>0.4</td>
+        <td>5</td>
+        <td>0</td>
+        <td>5.6</td>
       </tr>
       
       <tr>
@@ -210,6 +210,16 @@
         <td>1.0</td>
       </tr>
       
+      <tr>
+        <td class="strong"><a href="#e6d97c7a37314a2c4b52882c65856322693c61df" class="src_link" title="spec/models/user_spec.rb">spec/models/user_spec.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>26</td>
+        <td>15</td>
+        <td>15</td>
+        <td>0</td>
+        <td>1.3</td>
+      </tr>
+      
     </tbody>
   </table>
 </div>
@@ -229,11 +239,11 @@
         <div class="source_table" id="4a286990096e4ae8efbe71be286fcaa50f9be4f3">
   <div class="header">
     <h3>app/helpers/users_helper.rb</h3>
-    <h4><span class="red">40.0 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>5</b> relevant lines. 
-      <span class="green"><b>2</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
+      <span class="green"><b>5</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -270,8 +280,8 @@
           <code class="ruby">		info.map do |name, value|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="6">
-          
+        <li class="covered" data-hits="12" data-linenumber="6">
+          <span class="hits">12</span>
           
           <code class="ruby">			content_tag :tr do</code>
         </li>
@@ -282,8 +292,8 @@
           <code class="ruby">				content_tag(:td, name) +</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="8">
-          
+        <li class="covered" data-hits="12" data-linenumber="8">
+          <span class="hits">12</span>
           
           <code class="ruby">				content_tag(:td, /@user/=~ value ? eval(value) : value)</code>
         </li>
@@ -300,8 +310,8 @@
           <code class="ruby">		end.join</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="11">
-          
+        <li class="covered" data-hits="2" data-linenumber="11">
+          <span class="hits">2</span>
           
           <code class="ruby">		)</code>
         </li>
@@ -1789,6 +1799,180 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="e6d97c7a37314a2c4b52882c65856322693c61df">
+  <div class="header">
+    <h3>spec/models/user_spec.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>15</b> relevant lines. 
+      <span class="green"><b>15</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;spec_helper&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">describe &#39;Users&#39; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="5">
+          <span class="hits">3</span>
+          
+          <code class="ruby">	let(:user1) { FactoryGirl.create(:user, company: &quot;abc&quot;) }</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="6">
+          <span class="hits">3</span>
+          
+          <code class="ruby">	let(:user2) { FactoryGirl.create(:user, company: &quot;zxc&quot;) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">	</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	describe &quot;#company_info&quot; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		it &quot;should return a nested array of companies sorted alphabetically&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			Rails.cache.write(&#39;users_info&#39;, { user1.company =&gt; [user1], user2.company =&gt; [user2]})</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			expect(User.company_info[0][0]).to eq(&quot;abc&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			expect(User.company_info[1][0]).to eq(&quot;zxc&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	describe &quot;#metadata&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
+          
+          <code class="ruby">		let(:results) { User.metadata(&quot;abc&quot;) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		it &quot;should accept a company name and return a hash with most common_browser and common_os&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			Rails.cache.write(&#39;users_info&#39;, { user1.company =&gt; [user1], user2.company =&gt; [user2]})</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			expect(results[:common_browser]).to be_a(String)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			expect(results[:common_os]).to be_a(String)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">end</code>
