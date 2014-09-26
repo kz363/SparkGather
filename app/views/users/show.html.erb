@@ -1,11 +1,9 @@
-<div class="col-md-3 col-md-offset-3" id="connection-table">
+<div class="col-md-3"></div>
+<div class="col-md-6">
 	<table class="table table-bordered table-hover record-detail">
+		<h1 class="text-center"><%= @user.company %></h1>
 		<tr>
 			<th class="sub-title" colspan="2">Record ID: <%= @user.id %></th>
-		</tr>
-		<tr>
-			<td>Company</td>
-			<td><%= @user.company %></td>
 		</tr>
 		<!-- Record Timestamps -->
 		<tr>
@@ -19,7 +17,6 @@
 			<td>Record Updated</td>
 			<td><%= @user.updated_at %></td>
 		</tr>
-
 		<!-- Basic System Information -->
 		<tr>
 			<th class="sub-title" colspan="2">Basic System Information</th>
@@ -101,10 +98,11 @@
 			<th class="sub-title" colspan="2">Plugins</th>
 		</tr>
 		<% @user.show_plugins.each do |p| %>
-			<tr>
-				<td><%= p[0] %></td>
-				<td><%= p[1] %></td>
-			</tr>
+		<tr>
+			<td><%= p[0] %></td>
+			<td><%= p[1] %></td>
+		</tr>
 		<% end %>
 	</table>
 </div>
+<div class="col-md-3"></div>
