@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 	end
 
 	def gather
+		redirect_to info_error_path if params[:c] == "" || params[:c] == nil
 		company = params[:c]
 		user_agent = request.env["HTTP_USER_AGENT"]
 		ip_address = request.remote_ip

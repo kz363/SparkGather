@@ -1,0 +1,8 @@
+<div class='row'>
+	<div class='col-md-4 col-md-offset-4 text-center' id='main-content'>
+		<%= form_tag('/info', method: 'get') do %>
+		<%= text_field_tag(:c, nil, placeholder: "Company Name") %>
+		<%= submit_tag("Submit") %>
+		<% end %>
+	</div>
+</div>
