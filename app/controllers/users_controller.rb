@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 	end
 
 	def company
-		@users = Rails.cache.read('users_info')[params[:c]]
+		@users = Rails.cache.read('users_info')[params[:c]].sort { |a,b| b.id <=> a.id }
 		@company = params[:c]
 		@metadata = User.metadata(@company)
 	end
