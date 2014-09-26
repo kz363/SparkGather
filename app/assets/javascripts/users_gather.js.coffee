@@ -23,6 +23,11 @@ $(".users.gather").ready ->
 		errorMsg = 'Uhoh! Something went wrong. Please reload the page and try again. Sorry.'
 		showMsg(errorMsg)
 
+	renderShowPage = (response) ->
+		# replace current page with collected user data
+		$('#container').empty()
+		$('#container').append(response)
+
 	speed_test = ->
 		$.ajax '/speedtest',
 			method: 'GET'
@@ -35,8 +40,8 @@ $(".users.gather").ready ->
 				user_info: user_info
 			error: ->
 				showError()
-			success: ->
-				showSuccess()
+			success: (response) ->
+				renderShowPage(response)
 
 	showLoading()
 
