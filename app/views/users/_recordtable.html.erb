@@ -11,7 +11,7 @@
 			<td><%= link_to "#{u.id}", user_path(u.id) %></td>
 			<td><%= u.operating_system %></td>
 			<td><%= u.browser %></td>
-			<td><%= u.created_at %></td>
+			<td><%= u.created_at.localtime %></td>
 		</tr>
 		<% end %>
 	</table>
