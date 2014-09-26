@@ -1,7 +1,7 @@
 <div class="text-center">
-	<h1><%= @company %></h1>
-	<h3>Most Common Operating System: <%= @metadata[:common_os] %></h3>
-	<h3>Most Common Browser: <%= @metadata[:common_browser] %></h3>
+	<h1><%= @company.name %></h1>
+	<h3>Most Common Operating System: <%= @company.metadata[:common_os] %></h3>
+	<h3>Most Common Browser: <%= @company.metadata[:common_browser] %></h3>
 </div>
 
-<%= render "recordtable", users: @users %>
+<%= render "recordtable", users: @company.users %>
