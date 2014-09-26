@@ -61,7 +61,7 @@ $(".users.gather").ready ->
 		audio_formats: audio_formats
 		video_formats: video_formats
 		cookies: cookies
-		plugins: plugins.join(', ')
+		plugins: plugins.join('; ')
 		javascript: true
 
 	start = new Date().getTime()
