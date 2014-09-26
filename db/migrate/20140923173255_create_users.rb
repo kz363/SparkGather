@@ -1,10 +1,10 @@
 class CreateUsers < ActiveRecord::Migration
 	def change
 		create_table :users do |t|
-			t.string :company
-			t.string :ip_address
-			t.string :operating_system
-			t.string :browser
+			t.string :company, default: "N/A"
+			t.string :ip_address, default: "N/A"
+			t.string :operating_system, default: "N/A"
+			t.string :browser, default: "N/A"
 			t.string :screen_resolution, default: "N/A"
 			t.string :window_size, default: "N/A"
 			t.string :download_speed, default: "N/A"
