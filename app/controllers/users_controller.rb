@@ -24,10 +24,10 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		user = User.find(params[:user_id])
-		user.update(user_info_params)
+		@user = User.find(params[:user_id])
+		@user.update(user_info_params)
 		Cache.update
-		render nothing: true
+		render :show, layout: false
 	end
 
 	def company
