@@ -15,4 +15,21 @@ class User < ActiveRecord::Base
 		metadata[:common_browser] = Rails.cache.read('users_info')[company].group_by(&:browser).max_by{ |c,u| u.count }[0]
 		metadata
 	end
+
+	def show_plugins
+		plugins.split('; ').inject([]) { |all_plugins, p| all_plugins << p.split(": ") }
+	end
+
+	def show_proxy
+		case proxy
+		when '0'
+			'No proxy detected'
+		when 'tor'
+			'Client is behind Tor'
+		when 'public'
+			'Client is using a public proxy'
+		else
+			'ERROR'
+		end
+	end
 end

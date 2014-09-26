@@ -1,24 +1,33 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.hidden {
-	display: none;
-}
-
-.center-text {
-	text-align: center;
+body {
+	padding-top: 90px;
 }
 
 footer img {
-	padding-left: 49%;
+	margin-left: 49%;
   	z-index: -1;
 }
 
-#record-table, .record-detail {
+.record-detail {
 	margin: 0 auto;
 }
 
 .record-detail {
 	margin-bottom: 10px;
 }
+
+#main-content {
+	padding: 250px 0;
+}
+
+#connection-table {
+	padding-top: 20px;
+}
+
+.sub-title, .table-hover > tbody > tr:hover > th {
+	background-color: #FBA640;
+}
+
+

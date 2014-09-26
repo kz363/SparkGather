@@ -1,21 +1,16 @@
-<div id="record-table" border="1" style="width:300px">
-	<% @users.each do |u| %>
-		<p class="center-text"><a class="record" href="#"><%= "#{u.id} - #{u.updated_at}" %></a>
-		<div class="collapse-group"></div>
-		</p>
-		<table class="table table-striped table-bordered table-hover record-detail" border="1" style="width:300px">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Surname</th>
-					<th>Telephone</th>
-				</tr>
-			</thead>
-			<tr>
-				<td><p><%= u.company %></p></td>
-				<td>Sales</td>
-				<td>555-5555</td>
-			</tr>
-		</table>
-	<% end %>
+<div class="col-md-4 col-md-offset-4" id="record-table">
+	<table class="table table-striped table-bordered table-hover record-detail">
+		<thead>
+			<th>Record</th>
+			<th>OS</th>
+			<th>Browser</th>
+		</thead>
+		<% users.each do |u| %>
+		<tr>
+			<td><%= link_to "#{u.id}", user_path(u.id) %></td>
+			<td><%= u.operating_system %></td>
+			<td><%= u.browser %></td>
+		</tr>
+		<% end %>
+	</table>
 </div>

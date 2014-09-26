@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 		render nothing: true
 	end
 
-	def show
+	def company
 		puts "show params! \n\n\n"
 		p params
 		# @users = User.records
@@ -35,6 +35,10 @@ class UsersController < ApplicationController
 		@users = User.last(20)
 		@company = params[:c]
 		@metadata = User.metadata(@company)
+	end
+
+	def show
+		@user = User.find(params[:id])
 	end
 
 	private

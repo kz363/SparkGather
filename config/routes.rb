@@ -6,7 +6,8 @@ end
 
 SparkGather::Application.routes.draw do
 	root 'users#index'
-	get '/users' => 'users#show'
+	get '/users/:id' => 'users#show', as: 'user'
+	get '/users' => 'users#company'
 	get '/info' => 'users#gather'
 	put '/update' => 'users#update', :constraints => OnlyAjaxRequest.new
 	get '/speedtest' => 'users#speedtest', :constraints => OnlyAjaxRequest.new

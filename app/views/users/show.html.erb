@@ -1,7 +1,108 @@
-<div class="center-text">
-	<h1><%= @company %></h1>
-	<h3>Most Common Operating System: <%= @metadata[:common_os] %></h3>
-	<h3>Most Common Browser: <%= @metadata[:common_browser] %></h3>
+<div class="col-md-3"></div>
+<div class="col-md-6">
+	<table class="table table-bordered table-hover record-detail">
+		<h1 class="text-center"><%= @user.company %></h1>
+		<tr>
+			<th class="sub-title" colspan="2">Record ID: <%= @user.id %></th>
+		</tr>
+		<!-- Record Timestamps -->
+		<tr>
+			<th class="sub-title" colspan="2">Record Timestamps</th>
+		</tr>
+		<tr>
+			<td>Record Created</td>
+			<td><%= @user.created_at %></td>
+		</tr>
+		<tr>
+			<td>Record Updated</td>
+			<td><%= @user.updated_at %></td>
+		</tr>
+		<!-- Basic System Information -->
+		<tr>
+			<th class="sub-title" colspan="2">Basic System Information</th>
+		</tr>
+		<tr>
+			<td>User Agent</td>
+			<td><%= @user.user_agent %></td>
+		</tr>
+		<tr>
+			<td>OS</td>
+			<td><%= @user.operating_system %></td>
+		</tr>
+		<tr>
+			<td>Browser</td>
+			<td><%= @user.browser %></td>
+		</tr>
+		<tr>
+			<td>Mobile</td>
+			<td><%= @user.mobile %></td>
+		</tr>
+		<tr>
+			<td>Screen Resolution</td>
+			<td><%= @user.screen_resolution %></td>
+		</tr>
+		<tr>
+			<td>Window Size</td>
+			<td><%= @user.window_size %></td>
+		</tr>
+		<!-- Connection -->
+		<tr>
+			<th class="sub-title" colspan="2">Connection</th>
+		</tr>
+		<tr>
+			<td>IP Address</td>
+			<td><%= @user.ip_address %></td>
+		</tr>
+		<tr>
+			<td>Proxy</td>
+			<td><%= @user.show_proxy %></td>
+		</tr>
+		<tr>
+			<td>Download Speed</td>
+			<td><%= @user.download_speed %></td>
+		</tr>
+		<!-- Browser Capability -->
+		<tr>
+			<th class="sub-title" colspan="2">Browser Capability</th>
+		</tr>
+		<tr>
+			<td>Cookies</td>
+			<td><%= @user.cookies %></td>
+		</tr>
+		<tr>
+			<td>JavaScript</td>
+			<td><%= @user.javascript %></td>
+		</tr>
+		<tr>
+			<td>HTML5 Support</td>
+			<td><%= @user.html5_support %></td>
+		</tr>
+		<tr>
+			<td>CSS3 Support</td>
+			<td><%= @user.css3_support %></td>
+		</tr>
+		<tr>
+			<td>Flash Version</td>
+			<td><%= @user.flash_version %></td>
+		</tr>
+		<tr>
+			<td>Video Formats Supported</td>
+			<td><%= @user.video_formats %></td>
+		</tr>
+		<tr>
+			<td>Audio Formats Supported</td>
+			<td><%= @user.audio_formats %></td>
+		</tr>
+		<!-- Plugins -->
+		<tr>
+			<th class="sub-title" colspan="2">Plugins</th>
+		</tr>
+		<% @user.show_plugins.each do |p| %>
+		<tr>
+			<td><%= p[0] %></td>
+			<td><%= p[1] %></td>
+		</tr>
+		<% end %>
+	</table>
 </div>
-
-<%= render "recordtable" %>
+<div class="col-md-3"></div>
