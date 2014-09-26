@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
 	end
 
 	def show_plugins
-		{}
-		plugins.split('; ').inject([]) { |all_plugins, p| all_plugins << p.split(": ") } if plugins
+		return plugins.split('; ').inject([]) { |all_plugins, p| all_plugins << p.split(": ") } if plugins
+		[]
 	end
 
 	def show_proxy
