@@ -26,13 +26,7 @@ class UsersController < ApplicationController
 	end
 
 	def company
-		puts "show params! \n\n\n"
-		p params
-		# @users = User.records
-		# temporarily using User.last(10) to build the show template.
-		# the correct call should show all company records based on
-		# company name params[:c]
-		@users = User.last(20)
+		@users = Rails.cache.read('users_info')[params[:c]]
 		@company = params[:c]
 		@metadata = User.metadata(@company)
 	end
