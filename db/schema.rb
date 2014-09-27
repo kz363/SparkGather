@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20140923173255) do
     t.boolean  "javascript",        default: false
     t.boolean  "cookies"
     t.boolean  "mobile"
-    t.boolean  "domain_blocked"
     t.boolean  "html5_support"
     t.boolean  "css3_support"
     t.text     "user_agent"
