@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 	MOBILE_DEVICES = /(iPhone|iPod|iPad|Android|Phone|IEMobile|Tablet|Mobile|Nokia)/
 
 	def index
-		puts Cache.methods.sort
-		@company_info = User.company_info
+		page_number = params[:page].to_i - 1
+		@company_info = User.company_info[page_number]
 	end
 
 	def gather
