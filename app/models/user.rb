@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	validates_presence_of :company
+	before_save :update_empty_fields
 
 	def self.company_info
 		company_info = []
@@ -32,5 +33,12 @@ class User < ActiveRecord::Base
 		else
 			'ERROR'
 		end
+	end
+
+	private
+
+	def update_empty_fields
+		self.operating_system = "N/A" if self.operating_system == ""
+		self.browser = "N/A" if self.browser == ""
 	end
 end
