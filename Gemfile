@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+gem 'will_paginate'
+
+# Check n+1 queries
+gem 'bullet'
+
 # G2 gems and versions
 gem 'rails',  "4.0.3"
 gem "mysql2", "~> 0.3.11"

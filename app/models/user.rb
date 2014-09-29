@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	RECORDS_PER_PAGE = 5
 	validates_presence_of :company
 
 	def self.company_info
@@ -6,7 +7,7 @@ class User < ActiveRecord::Base
 		Rails.cache.read('users_info').map do |company, users|
 			company_info << [company, users.count, users.max_by(&:updated_at).updated_at.localtime]
 		end
-		company_info.sort_by{ |name| name[0] }
+		company_info.sort_by{ |name| name[0] }.each_slice(RECORDS_PER_PAGE).to_a
 	end
 
 	def self.metadata(company)
