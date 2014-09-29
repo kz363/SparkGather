@@ -38,7 +38,8 @@ class User < ActiveRecord::Base
 	private
 
 	def update_empty_fields
-		self.operating_system = "N/A" if self.operating_system == ""
-		self.browser = "N/A" if self.browser == ""
+		self.attributes.each do |name, value|
+			self.update_attributes(name => "N/A") if value == ""
+		end
 	end
 end
