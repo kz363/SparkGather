@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	RECORDS_PER_PAGE = 5
 	validates_presence_of :company
+	before_save :update_empty_fields
 
 	def self.company_info
 		company_info = []
@@ -32,6 +33,14 @@ class User < ActiveRecord::Base
 			'Client is using a public proxy'
 		else
 			'ERROR'
+		end
+	end
+
+	private
+
+	def update_empty_fields
+		self.attributes.each do |name, value|
+			self.update_attributes(name => "N/A") if value == ""
 		end
 	end
 end
