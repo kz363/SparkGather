@@ -11,8 +11,8 @@ class UsersController < ApplicationController
 		company = params[:c]
 		user_agent = request.env["HTTP_USER_AGENT"]
 		ip_address = request.remote_ip
-		browser = /(opera|chrome|safari|firefox|msie|trident)\/[^ ]*/i.match(user_agent).to_s.gsub("/", " ")
-		operating_system = /(Mac|Windows|Linux|Android|CPU|Blackberry) \w[^;)]*/i.match(user_agent).to_s
+		browser = parse_browser(user_agent)
+		operating_system = parse_operating_system(user_agent)
 		proxy = Proxy.check_proxy(ip_address)
 		@user = User.create(company: company,
 												user_agent: user_agent,
@@ -46,5 +46,13 @@ class UsersController < ApplicationController
 
 	def user_info_params
 		params.require(:user_info).permit!
+	end
+
+	def parse_browser(user_agent)
+		/(opera|chrome|safari|firefox|msie|trident)\/[^ ]*/i.match(user_agent).to_s.gsub("/", " ")
+	end
+
+	def parse_operating_system(user_agent)
+		/(Mac|Windows|Linux|Android|CPU|Blackberry) \w[^;)]*/i.match(user_agent).to_s
 	end
 end
