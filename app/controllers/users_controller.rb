@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 	MOBILE_DEVICES = /(iPhone|iPod|iPad|Android|Phone|IEMobile|Tablet|Mobile|Nokia)/
+	BROWSERS = /(opera|chrome|safari|firefox|msie|trident)\/[^ ]*/i
+	OPERATING_SYSTEMS = /(Mac|Windows|Linux|Android|CPU|Blackberry) \w[^;)]*/i
 
 	def index
-		@company_info = User.company_info
+		page_number = params[:page].to_i - 1
+		@company_info = User.company_info[page_number]
 	end
 
 	def gather
@@ -54,10 +57,10 @@ class UsersController < ApplicationController
 	end
 
 	def parse_browser(user_agent)
-		/(opera|chrome|safari|firefox|msie|trident)\/[^ ]*/i.match(user_agent).to_s.gsub("/", " ")
+		BROWSERS.match(user_agent).to_s.gsub("/", " ")
 	end
 
 	def parse_operating_system(user_agent)
-		/(Mac|Windows|Linux|Android|CPU|Blackberry) \w[^;)]*/i.match(user_agent).to_s
+		OPERATING_SYSTEMS.match(user_agent).to_s
 	end
 end
