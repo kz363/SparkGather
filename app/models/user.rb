@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	RECORDS_PER_PAGE = 5
 	validates_presence_of :company
-	before_save :update_empty_fields
+	before_save :update_empty_fields, :update_proxy
 
 	def self.company_info
 		company_info = []
@@ -23,20 +23,22 @@ class User < ActiveRecord::Base
 		[]
 	end
 
-	def show_proxy
-		case proxy
-		when '0'
-			'No proxy detected'
-		when 'tor'
-			'Client is behind Tor'
-		when 'public'
-			'Client is using a public proxy'
-		else
-			'ERROR'
-		end
-	end
-
 	private
+
+	def update_proxy
+		case self.proxy
+		when '0'
+			p = 'No proxy detected'
+		when 'tor'
+			p = 'Client is behind Tor'
+		when 'public'
+			p = 'Client is using a public proxy'
+		else
+			p = 'ERROR'
+		end
+		
+		self.proxy = p
+	end
 
 	def update_empty_fields
 		self.attributes.each do |name, value|
