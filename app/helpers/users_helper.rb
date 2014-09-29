@@ -10,4 +10,12 @@ module UsersHelper
 		end.join
 		)
 	end
+
+	def current_page
+		params[:page].to_i
+	end
+
+	def page_number
+		current_page - 1
+	end
 end
