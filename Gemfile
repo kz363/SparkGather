@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+# Click button to auto copy text
+gem 'zeroclipboard-rails'
+
 # Client side form validation
 gem "parsley-rails"
 
