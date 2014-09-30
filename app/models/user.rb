@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	RECORDS_PER_PAGE = 5
+	RECORDS_PER_PAGE = 10
 	validates_presence_of :company
 	before_save :update_empty_fields, :update_proxy
 
