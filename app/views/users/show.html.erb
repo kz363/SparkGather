@@ -3,7 +3,7 @@
 	<table class="table table-bordered table-hover record-detail">
 		<h1 class="text-center"><%= @user.company %></h1>
 		<tr>
-			<th class="sub-title" colspan="2">Record ID: <%= @user.id %></th>
+			<th class="sub-title" colspan="2"><%= @user.salesforce_id == "N/A" ? "ID: #{@user.auto_id}" : "Salesforce ID: #{@user.salesforce_id}" %></th>
 		</tr>
 		<!-- Record Timestamps -->
 		<%= info_box('Record Timestamps', {

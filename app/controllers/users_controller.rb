@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
 	def encrypt
 		# parse params here
-		url = info_path + '/?c= 'SymmetricEncryption.encrypt("company params")
+		url = info_path + '/?c=' + SymmetricEncryption.encrypt("company params")
 		render json: url
 	end
 
