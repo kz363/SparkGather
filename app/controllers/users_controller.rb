@@ -45,6 +45,10 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def link
+
+	end
+
 private
 
 	def mobile_browser?
