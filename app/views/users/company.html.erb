@@ -1,7 +1,8 @@
 <div class="text-center">
-	<h1><%= link_to @company.name, "/users?c=#{@company.name}" %></h1>
+	<h1><%= link_to @company.name, "/users?c=#{@company.name}&page=1" %></h1>
 	<h3>Most Common Operating System: <%= @company.metadata[:common_os] %></h3>
 	<h3>Most Common Browser: <%= @company.metadata[:common_browser] %></h3>
 </div>
 
 <%= render "recordtable", users: @company.users %>
+<%= render 'pagination', collection: @company.users, options: { c: @company.name, path: "users" } %>

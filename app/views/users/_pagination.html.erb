@@ -1,7 +1,8 @@
 <div class="col-md-4 col-md-offset-4">
   <ul class="pagination">
+    <% options ||= {} %>
     <%= arrow_left %>
-    <%= pages(companies) %>
-    <%= arrow_right(companies) %>
+    <%= pages(collection, options) %>
+    <%= arrow_right(collection, options) %>
   </ul>
 </div>

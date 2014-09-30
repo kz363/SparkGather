@@ -11,25 +11,25 @@ module UsersHelper
 		)
 	end
 
-	def page_number
+	def page_index
 		current_page - 1
 	end
 
-	def arrow_left
-		handle_end_page(0, '&laquo;', '-')
+	def arrow_left(options = {})
+		handle_end_page(0, '&laquo;', '-', options)
 	end
 
-	def arrow_right(companies)
-		handle_end_page(companies.size - 1, '&raquo;', '+')
+	def arrow_right(collection, options = {})
+		handle_end_page(collection.size - 1, '&raquo;', '+', options)
 	end
 
-	def pages(companies)
+	def pages(collection, options = {})
 		raw(
-		companies.each_with_index.map do |_, i|
+		collection.each_with_index.map do |_, i|
 			page_num = i + 1
 			active = current_page == page_num ? 'active' : nil
 			content_tag :li, class: active do
-				content_tag(:a, page_num, href: "/?page=#{page_num}")
+				content_tag(:a, page_num, href: "/#{path(options)}?#{queries(options)}page=#{page_num}")
 			end
 		end.join
 		)
@@ -37,17 +37,25 @@ module UsersHelper
 
 private
 
+	def path(options)
+		options.fetch(:path, nil)
+	end
+
+	def queries(options)
+		options.each_pair.map { |k, v| "#{k}=#{v}&" }.join
+	end
+
 	def current_page
 		params[:page].to_i
 	end
 
-	def handle_end_page(end_page, arrow, direciton)
-		disabled = page_number == end_page ? "disabled" : nil
+	def handle_end_page(end_page, arrow, direciton, options = {})
+		disabled = page_index == end_page ? "disabled" : nil
 		content_tag :li, class: disabled do
 			if disabled
 				content_tag(:span, arrow.html_safe).html_safe
 			else
-				content_tag(:a, arrow.html_safe, href: "/?page=#{eval(current_page.to_s + "#{direciton}" + ' 1')}").html_safe
+				content_tag(:a, arrow.html_safe, href: "/#{path(options)}?#{queries(options)}page=#{eval(current_page.to_s + "#{direciton}" + ' 1')}").html_safe
 			end
 		end
 	end
