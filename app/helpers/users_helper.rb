@@ -11,7 +11,7 @@ module UsersHelper
 		)
 	end
 
-	def page_number
+	def page_index
 		current_page - 1
 	end
 
@@ -19,13 +19,13 @@ module UsersHelper
 		handle_end_page(0, '&laquo;', '-')
 	end
 
-	def arrow_right(companies)
-		handle_end_page(companies.size - 1, '&raquo;', '+')
+	def arrow_right(collection)
+		handle_end_page(collection.size - 1, '&raquo;', '+')
 	end
 
-	def pages(companies)
+	def pages(collection)
 		raw(
-		companies.each_with_index.map do |_, i|
+		collection.each_with_index.map do |_, i|
 			page_num = i + 1
 			active = current_page == page_num ? 'active' : nil
 			content_tag :li, class: active do
@@ -42,7 +42,7 @@ private
 	end
 
 	def handle_end_page(end_page, arrow, direciton)
-		disabled = page_number == end_page ? "disabled" : nil
+		disabled = page_index == end_page ? "disabled" : nil
 		content_tag :li, class: disabled do
 			if disabled
 				content_tag(:span, arrow.html_safe).html_safe
