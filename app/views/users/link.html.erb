@@ -12,3 +12,6 @@
   <%= f.submit "Create Link", class: "btn btn-default" %><br>
   </div>
 <% end %>
+<br>
+<%= button_tag "Copy Link!", 'data-clipboard-target' => 'generated_link', id: 'copy-button' %>
+<%= text_field_tag 'generated_link', nil, value: 'test' %>

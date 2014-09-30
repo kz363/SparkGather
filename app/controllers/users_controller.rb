@@ -50,6 +50,7 @@ class UsersController < ApplicationController
 		puts "\n\n\n\n Encrypt is called"
 		p params
 		puts "\n\n\n"
+		link = 'http://localhost:3000/info?c=TESTLINK'
 		render nothing: true
 	end
 
