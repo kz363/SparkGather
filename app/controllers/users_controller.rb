@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 			@user = User.find(cookies.signed[:guidespark_id])
 		else
 			company = params[:c]
-			user_agent = request.env["HTTP_USER_AGENT"]
+			user_agent = request.env['HTTP_USER_AGENT']
 			ip_address = request.remote_ip
 			browser = parse_browser(user_agent)
 			operating_system = parse_operating_system(user_agent)
@@ -45,10 +45,16 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def encrypt
+		# parse params here
+		url = info_path + '/?c= 'SymmetricEncryption.encrypt("company params")
+		render json: url
+	end
+
 private
 
 	def mobile_browser?
-		request.env['HTTP_USER_AGENT'] && request.env["HTTP_USER_AGENT"][MOBILE_DEVICES] ? true : false
+		request.env['HTTP_USER_AGENT'] && request.env['HTTP_USER_AGENT'][MOBILE_DEVICES] ? true : false
 	end
 
 	def user_info_params
@@ -56,7 +62,7 @@ private
 	end
 
 	def parse_browser(user_agent)
-		BROWSERS.match(user_agent).to_s.gsub("/", " ")
+		BROWSERS.match(user_agent).to_s.gsub('/', ' ')
 	end
 
 	def parse_operating_system(user_agent)
