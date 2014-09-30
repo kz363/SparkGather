@@ -23,6 +23,18 @@ module UsersHelper
 		handle_end_page(companies.size - 1, '&raquo;', '+')
 	end
 
+	def pages(companies)
+		raw(
+		companies.each_with_index.map do |_, i|
+			page_num = i + 1
+			active = current_page == page_num ? 'active' : nil
+			content_tag :li, class: active do
+				content_tag(:a, page_num, href: "/?page=#{page_num}")
+			end
+		end.join
+		)
+	end
+
 private
 
 	def current_page
