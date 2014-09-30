@@ -10,7 +10,7 @@
 				<th># of Users</th>
 				<th>Last Updated</th>
 			</tr>
-			<% @company_info[page_number].each do |company_info| %>
+			<% @company_info[page_index].each do |company_info| %>
 			<tr>
 				<td><a href="/users?c=<%=company_info[0]%>"><%=company_info[0]%></a></td>
 				<td><%=company_info[1]%></td>
