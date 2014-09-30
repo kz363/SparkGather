@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+# Client side form validation
+gem "parsley-rails"
+
 gem 'will_paginate'
 
 # Check n+1 queries
