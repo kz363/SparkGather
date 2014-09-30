@@ -1,1 +1,14 @@
-I'm Link.
+<h1>Generate a Link <3!</h1>
+<%= form_for @link_form, :url => '/encrypt', remote: true, id: 'link-form', method: 'GET' do |f| %>
+  <div class="form-group">
+  <%= f.label :company_name, class: "control-label" %><br>
+  <%= f.text_field :company_name, class: "form-control" %><br>
+  </div>
+  <div class="form-gruop">
+  <%= f.label "Salesforce ID", class: "control-label" %><br>
+  <%= f.text_field :salesforce, class: "form-control" %><br>
+  </div>
+  <div class="action">
+  <%= f.submit "Create Link", class: "btn btn-default" %><br>
+  </div>
+<% end %>
