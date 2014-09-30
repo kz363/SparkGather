@@ -5,4 +5,4 @@
 </div>
 
 <%= render "recordtable", users: @company.users %>
-<%= render 'pagination', collection: @company.users %>
+<%= render 'pagination', collection: @company.users, options: { c: @company.name, path: "users" } %>
