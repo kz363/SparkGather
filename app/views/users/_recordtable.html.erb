@@ -6,7 +6,7 @@
 			<th>Browser</th>
 			<th>Time Created</th>
 		</thead>
-		<% users.each do |u| %>
+		<% users[page_index].each do |u| %>
 		<tr>
 			<td><%= link_to "#{u.id}", user_path(u.id) %></td>
 			<td><%= u.operating_system %></td>
