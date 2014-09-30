@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20140923173255) do
 
   create_table "users", force: true do |t|
-    t.string   "salesforce_id"
-    t.string   "auto_id"
+    t.string   "salesforce_id",     default: ""
+    t.string   "auto_id",           default: ""
     t.string   "company",           default: "N/A"
     t.string   "ip_address",        default: "N/A"
     t.string   "operating_system",  default: "N/A"

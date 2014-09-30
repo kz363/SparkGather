@@ -1,8 +1,8 @@
 class CreateUsers < ActiveRecord::Migration
 	def change
 		create_table :users do |t|
-			t.string :salesforce_id
-			t.string :auto_id
+			t.string :salesforce_id, default: "N/A"
+			t.string :auto_id, default: "N/A"
 			t.string :company, default: "N/A"
 			t.string :ip_address, default: "N/A"
 			t.string :operating_system, default: "N/A"
