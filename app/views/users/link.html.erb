@@ -1,11 +1,11 @@
 <h1>Generate a Link <3!</h1>
-<%= form_for @link_form, :url => '/encrypt', remote: true, id: 'link-form', method: 'GET' do |f| %>
+<%= form_for @link_form, :url => '/encrypt', remote: true, class: 'data-parsley-validate', id: 'link-form', method: 'GET' do |f| %>
   <div class="form-group">
-  <%= f.label :company_name, class: "control-label" %><br>
-  <%= f.text_field :company_name, class: "form-control" %><br>
+  <%= f.label "Company Name*", class: "control-label" %><br>
+  <%= f.text_field :company_name, class: "form-control", required: true %><br>
   </div>
   <div class="form-gruop">
-  <%= f.label "Salesforce ID", class: "control-label" %><br>
+  <%= f.label "Salesforce ID (optional)", class: "control-label" %><br>
   <%= f.text_field :salesforce, class: "form-control" %><br>
   </div>
   <div class="action">
