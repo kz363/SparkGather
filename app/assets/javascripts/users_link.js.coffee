@@ -15,4 +15,4 @@ $(".users.link").ready ->
       generatedLink.select()
 
     .bind 'ajax:error', (event, data, status, xhr) ->
-      console.log 'Internet is broken :('
+      alert 'Internet is broken :('
