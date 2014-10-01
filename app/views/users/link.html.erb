@@ -13,5 +13,7 @@
   </div>
 <% end %>
 <br>
-<%= text_field_tag 'generated_link', nil, value: 'test' %>
-<%= button_tag "Click to Copy :)", 'data-clipboard-target' => 'generated_link', id: 'copy-button' %>
+<div class="hidden" id="generated_link_div">
+  <%= text_field_tag 'generated_link' %>
+  <%= button_tag "Click to Copy :)", 'data-clipboard-target' => 'generated_link', id: 'copy-button' %>
+</div>
