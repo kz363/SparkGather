@@ -2,7 +2,7 @@ class LinkForm
   include ActiveModel::Model
   include ActiveModel::Validations
 
-  attr_accessor :company_name, :salesforce
+  attr_accessor :company_name, :salesforce_id
   validates_presence_of :company_name
 
   def initialize(attributes = {})
