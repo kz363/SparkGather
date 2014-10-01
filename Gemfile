@@ -23,6 +23,7 @@ gem "symmetric-encryption",   "~> 0.9.1"
 
 group :test, :development do
 	gem "rspec-rails", "~> 2.13.1"
+      gem 'pry'
 end
 
 group :test do
