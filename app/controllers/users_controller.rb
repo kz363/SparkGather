@@ -13,8 +13,8 @@ class UsersController < ApplicationController
 		elsif cookies[:guidespark_id]
 			@user = User.find(cookies.signed[:guidespark_id]) # runs into error when database is empty
 		else
-			company = params[:c]
-			salesforce_id = params[:sfid]
+			company = SymmetricEncryption.decrypt(params[:c])
+			salesforce_id = SymmetricEncryption.decrypt(params[:sfid])
 			user_agent = request.env['HTTP_USER_AGENT']
 			ip_address = request.remote_ip
 			browser = parse_browser(user_agent)
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 private
 
 	def strip_encrypted(encryption)
-		encryption.gsub(/==\n/, '')
+		encryption.gsub(/\n/, '')
 	end
 
 	def mobile_browser?
