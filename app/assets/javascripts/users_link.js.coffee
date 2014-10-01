@@ -8,8 +8,11 @@ $(".users.link").ready ->
     e.preventDefault()
     generatedLink.select()
 
-  $(document).ajaxSuccess ->
+  $('#new_link_form')
+    .bind 'ajax:success', (event, data, status, xhr) ->
       $('#new_link_form').find('input[type="text"]').val('')
-
+      generatedLink.val(data.url)
       generatedLink.select()
-  $(document).ajaxError ->
+
+    .bind 'ajax:error', (event, data, status, xhr) ->
+      console.log 'Internet is broken :('
