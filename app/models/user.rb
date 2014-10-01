@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
 	RECORDS_PER_PAGE = 10
 	validates_presence_of :company
-	before_save :update_empty_fields, :update_proxy
+	before_save :update_empty_fields
+	before_create :update_proxy
 
 	def self.company_info
 		company_info = []
@@ -36,7 +37,6 @@ class User < ActiveRecord::Base
 		else
 			p = 'ERROR'
 		end
-		
 		self.proxy = p
 	end
 

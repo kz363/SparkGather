@@ -1,6 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+# seed dump: Copy db to seed file
+gem 'seed_dump'
+
+# Click button to auto copy text
+gem 'zeroclipboard-rails'
+
+# Client side form validation
+gem "parsley-rails"
+
 gem 'will_paginate'
 
 # Check n+1 queries

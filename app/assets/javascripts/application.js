@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-readyselector
+//= require parsley
+//= require zeroclipboard
 //= require_tree .

@@ -6,6 +6,7 @@ end
 
 SparkGather::Application.routes.draw do
 	root 'users#index'
+	get '/link' => 'users#link'
 	get '/encrypt' => 'users#encrypt', :constraints => OnlyAjaxRequest.new
 	get '/users/:id' => 'users#show', as: 'user'
 	get '/users' => 'users#company'

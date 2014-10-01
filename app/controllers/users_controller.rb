@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 	def gather
 		if params[:c] == "" || params[:c] == nil
 			redirect_to info_error_path
-		elsif cookies[:guidespark_id] 
+		elsif cookies[:guidespark_id]
 			@user = User.find(cookies.signed[:guidespark_id]) # runs into error when database is empty
 		else
 			company = params[:c]
@@ -49,6 +49,18 @@ class UsersController < ApplicationController
 		# parse params here
 		url = info_path + '/?c=' + SymmetricEncryption.encrypt("company params")
 		render json: url
+
+
+		params[:link_form]
+		puts "\n\n\n\n Encrypt is called"
+		p params
+		puts "\n\n\n"
+		link = 'http://localhost:3000/info?c=TESTLINK'
+		render nothing: true
+	end
+
+	def link
+		@link_form = LinkForm.new
 	end
 
 private
