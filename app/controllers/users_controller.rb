@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 		if params[:c] == "" || params[:c] == nil
 			redirect_to info_error_path
 		elsif cookies[:guidespark_id]
-			@user = User.find(cookies.signed[:guidespark_id])
+			@user = User.find(cookies.signed[:guidespark_id]) # runs into error when database is empty
 		else
 			company = params[:c]
 			user_agent = request.env['HTTP_USER_AGENT']
@@ -46,6 +46,11 @@ class UsersController < ApplicationController
 	end
 
 	def encrypt
+		# parse params here
+		url = info_path + '/?c=' + SymmetricEncryption.encrypt("company params")
+		render json: url
+
+
 		params[:link_form]
 		puts "\n\n\n\n Encrypt is called"
 		p params
