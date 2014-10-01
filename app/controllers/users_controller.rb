@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 	end
 
 	def gather
+		# Need to think about what to do when a user accidentally changed the encrypted key before clicking on the link
 		if params[:c] == "" || params[:c] == nil
 			redirect_to info_error_path
 		elsif cookies[:guidespark_id]
