@@ -48,12 +48,9 @@ class UsersController < ApplicationController
 	end
 
 	def encrypt
-		# parse params here
-		#  remember to titleize the name
 		params[:link_form]
-		company_name = params[:link_form][:company_name].titleize
+		company_name = params[:link_form][:company_name].downcase.titleize
 		salesforce_id = params[:link_form][:salesforce_id]
-		puts "\n\n\n\n\n"
 		url =	info_url +
 				'/?c=' + strip_encrypted(SymmetricEncryption.encrypt("#{company_name}")) + '&' +
 				'sfid=' + strip_encrypted(SymmetricEncryption.encrypt("#{strip_encrypted(salesforce_id)}"))
