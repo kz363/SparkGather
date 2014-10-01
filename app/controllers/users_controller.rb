@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 			@user = User.find(cookies.signed[:guidespark_id]) # runs into error when database is empty
 		else
 			company = params[:c]
+			salesforce_id = params[:sfid]
 			user_agent = request.env['HTTP_USER_AGENT']
 			ip_address = request.remote_ip
 			browser = parse_browser(user_agent)
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
 													browser: browser,
 													operating_system: operating_system,
 													proxy: proxy,
+													salesforce_id: salesforce_id,
 													mobile: mobile_browser?)
 			cookies.signed[:guidespark_id] = { value: @user.id, expires: 7.days.from_now }
 		end
@@ -47,16 +49,15 @@ class UsersController < ApplicationController
 
 	def encrypt
 		# parse params here
-		url = info_path + '/?c=' + SymmetricEncryption.encrypt("company params")
-		render json: url
-
-
+		#  remember to titleize the name
 		params[:link_form]
-		puts "\n\n\n\n Encrypt is called"
-		p params
-		puts "\n\n\n"
-		link = 'http://localhost:3000/info?c=TESTLINK'
-		render nothing: true
+		company_name = params[:link_form][:company_name].titleize
+		salesforce_id = params[:link_form][:salesforce_id]
+		puts "\n\n\n\n\n"
+		url =	info_url +
+				'/?c=' + strip_encrypted(SymmetricEncryption.encrypt("#{company_name}")) + '&' +
+				'sfid=' + strip_encrypted(SymmetricEncryption.encrypt("#{strip_encrypted(salesforce_id)}"))
+		render json: { url: url }
 	end
 
 	def link
@@ -64,6 +65,10 @@ class UsersController < ApplicationController
 	end
 
 private
+
+	def strip_encrypted(encryption)
+		encryption.gsub(/==\n/, '')
+	end
 
 	def mobile_browser?
 		request.env['HTTP_USER_AGENT'] && request.env['HTTP_USER_AGENT'][MOBILE_DEVICES] ? true : false
