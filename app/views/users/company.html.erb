@@ -6,7 +6,3 @@
 
 <%= render "recordtable", users: @company.users %>
 
-<div id="company-list" class="col-md-6 col-md-offset-3">
-  <%= render 'pagination', collection: @company.users, options: { c: @company.name, path: "users" } %>
-</div>
-
