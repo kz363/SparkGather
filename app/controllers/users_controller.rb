@@ -14,8 +14,8 @@ class UsersController < ApplicationController
 		elsif cookies[:guidespark_id]
 			@user = User.find(cookies.signed[:guidespark_id]) # runs into error when database is empty
 		else
-			company = SymmetricEncryption.decrypt(params[:c])
-			salesforce_id = SymmetricEncryption.decrypt(params[:sfid])
+			company = SymmetricEncryption.decrypt(sanitize_params(params[:c]))
+			salesforce_id = SymmetricEncryption.decrypt(sanitize_params(params[:sfid]))
 			user_agent = request.env['HTTP_USER_AGENT']
 			ip_address = request.remote_ip
 			browser = parse_browser(user_agent)
@@ -64,8 +64,12 @@ class UsersController < ApplicationController
 
 private
 
+	def sanitize_params(params)
+		params.gsub(' ', '+')
+	end
+
 	def strip_encrypted(encryption)
-		encryption.gsub(/\n/, '')
+		encryption.chomp
 	end
 
 	def mobile_browser?
