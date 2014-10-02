@@ -14,7 +14,7 @@
 		<tbody>
 		<% @company_info.each do |company_info| %>
 			<tr>
-				<td><a href="/users?c=<%="#{company_info[0]}&page=1"%>"><%=company_info[0]%></a></td>
+				<td><a href="/users?c=<%="#{company_info[0]}"%>"><%=company_info[0]%></a></td>
 				<td><%=company_info[1]%></td>
 				<td><%=company_info[2]%></td>
 			</tr>
