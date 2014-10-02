@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-readyselector
+//= require dataTables/jquery.dataTables
 //= require parsley
 //= require zeroclipboard
 //= require_tree .
