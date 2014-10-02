@@ -1,5 +1,4 @@
 class Users::CompanyPresenter
-	RECORDS_PER_PAGE = 10
 	attr_reader :name
 
 	def initialize(name)
