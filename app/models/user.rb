@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-	RECORDS_PER_PAGE = 10
 	validates_presence_of :company
 	before_save :update_empty_fields
 	before_create :update_proxy
@@ -9,7 +8,7 @@ class User < ActiveRecord::Base
 		Rails.cache.read('users_info').map do |company, users|
 			company_info << [company, users.count, users.max_by(&:updated_at).updated_at.localtime]
 		end
-		company_info.sort_by{ |name| name[0] }.each_slice(RECORDS_PER_PAGE).to_a
+		company_info.sort_by{ |name| name[0] }.to_a
 	end
 
 	def self.metadata(company)
