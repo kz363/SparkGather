@@ -1,21 +1,17 @@
 <div class="col-md-4 col-md-offset-4">
   <h1>Generate a Link</h1>
-  <%= form_for @link_form, :url => '/encrypt', remote: true, class: 'data-parsley-validate', id: 'link-form', method: 'GET' do |f| %>
+  <%= form_for @link_form, :url => '/encrypt', remote: true, html: { class: 'form-inline data-parsley-validate' }, id: 'link-form', method: 'GET' do |f| %>
     <div class="form-group">
-    <%= f.label "Company Name*", class: "control-label" %><br>
-    <%= f.text_field :company_name, class: "form-control", required: true %><br>
+      <%= f.text_field :company_name, class: "form-control", required: true, placeholder: 'Company Name*' %><br>
     </div>
     <div class="form-group">
-    <%= f.label "Salesforce ID (optional)", class: "control-label" %><br>
-    <%= f.text_field :salesforce_id, class: "form-control" %><br>
+      <%= f.text_field :salesforce_id, class: "form-control", placeholder: 'SFDC ID' %>
     </div>
-    <div class="action">
-    <%= f.submit "Create Link", class: "btn btn-info" %><br>
-    </div>
+    <%= f.submit "Create Link", class: "btn btn-primary" %>
   <% end %>
   <br>
-  <div class="hidden" id="generated_link_div">
-    <%= text_field_tag 'generated_link', nil, readonly: true %>
-    <%= button_tag "", 'data-clipboard-target' => 'generated_link', id: 'copy-button', class: "fa fa-clipboard" %>
+  <div id="generated_link_div">
+    <%= text_field_tag 'generated_link', nil, readonly: true, size: 34, placeholder: 'Your link will be generated here' %>
+    <%= button_tag " Copy", 'data-clipboard-target' => 'generated_link', id: 'copy-button', class: "fa fa-clipboard btn btn-success" %>
   </div>
 </div>

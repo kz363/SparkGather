@@ -11,7 +11,6 @@ $(".users.link").ready ->
   $('#new_link_form')
     .bind 'ajax:success', (event, data, status, xhr) ->
       $('#new_link_form').find('input[type="text"]').val('')
-      $( "#generated_link_div" ).removeClass('hidden')
       generatedLink.val(data.url)
       generatedLink.select()
 
