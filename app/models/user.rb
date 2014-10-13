@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	validates_presence_of :company
+	before_create :update_proxy, :generate_auto_id
 	before_save :update_empty_fields
-	before_create :update_proxy
 
 	def self.company_info
 		company_info = []
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 	end
 
 	def show_plugins
-		return plugins.split('; ').inject([]) { |all_plugins, p| all_plugins << p.split(":: ") } if plugins
+		return plugins.split('; ').inject([]) { |all_plugins, p| all_plugins << p.split(':: ') } if plugins
 		[]
 	end
 
@@ -39,9 +39,13 @@ class User < ActiveRecord::Base
 		self.proxy = p
 	end
 
+	def generate_auto_id
+		self.auto_id = Time.now.to_i if salesforce_id == 'N/A'
+	end
+
 	def update_empty_fields
 		self.attributes.each do |name, value|
-			self.update_attributes(name => "N/A") if value == ""
+			self.update_attributes(name => 'N/A') if value == ''
 		end
 	end
 end
