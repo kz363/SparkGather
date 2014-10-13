@@ -46,7 +46,8 @@ $(".users.gather").ready ->
 	showLoading()
 
 	$window = $(window)
-	plugins = ( "#{plugin.name}: #{plugin.description}" for plugin in navigator.plugins )
+	debugger;
+	plugins = ( "#{plugin.name}:: #{plugin.description}" for plugin in navigator.plugins )
 	window.plugins = plugins
 	flash_version = flash for flash in plugins when flash.match /Shockwave/
 	user_id = parseInt($('#user_id').text())
