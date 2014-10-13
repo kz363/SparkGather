@@ -46,7 +46,6 @@ $(".users.gather").ready ->
 	showLoading()
 
 	$window = $(window)
-	debugger;
 	plugins = ( "#{plugin.name}:: #{plugin.description}" for plugin in navigator.plugins )
 	window.plugins = plugins
 	flash_version = flash for flash in plugins when flash.match /Shockwave/
